@@ -13,11 +13,10 @@ import { MatCardModule} from '@angular/material/card';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { HttpClientModule } from '@angular/common/http';
-import { IncioComponent } from './incio/incio.component';
-import { AcercaComponent } from './acerca/acerca.component';
+import { IncioComponent } from './inicio/incio.component';
+
 import { FooterComponent } from './footer/footer.component';
 import { FormularioComponent } from './formulario/formulario.component';
-import { OfertaComponent } from './oferta/oferta.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 
@@ -29,10 +28,9 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     NavbarComponent,
     IncioComponent,
-    AcercaComponent,
+    
     FooterComponent,
     FormularioComponent,
-    OfertaComponent,
     LoginComponent,
     AdminComponent,
   ],
