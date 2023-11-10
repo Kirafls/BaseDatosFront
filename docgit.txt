@@ -1,0 +1,14 @@
+//El documento esta creado como guia para el uso de git y git hub
+Escribir en la consola
+    git clone https://github.com/Kirafls/HotelA.git 
+Despues van a entrar en la rama de componetentes, es la rama de trabajo
+    git checkout pbase
+Bajo esta rama es la que se va a trabajar, realizan los cambios que se requieran en el proyecto y se crea una nueva rama con su nombre
+    git branch -b Su-nombre
+Despues en la consola debe aparecer la rama que crearon entre parentesis, ejemplo:(carlos); Añadir los cambios y documentos nuevos
+    git add .
+Añadir cambios a la rama
+    git commit -m "Descripcion de los cambios"
+Despues subir los cambios al reposiorio
+    git push origin Su-nombre   //al momento de agragar el push van a agregar origin y el nombre de la rama en la que desean guardar
+Dudas manden mensaje

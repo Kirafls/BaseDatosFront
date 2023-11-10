@@ -1,0 +1,7 @@
+fieldset{
+    background-image: url("../../assets/Img/Fondo.webp");
+}
+p,ul{
+    text-align: justify;
+    margin: 50px;
+}

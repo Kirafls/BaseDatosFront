@@ -1,0 +1,95 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <p>Hoy nos reunimos aquí para discutir un tema de gran importancia y relevancia en la vida de muchos jóvenes: por qué deberían considerar ingresar a la Universidad Tecnológica Especializada. Estoy emocionado/a de compartir con ustedes algunas razones convincentes por las cuales unirse a la UTE puede marcar una diferencia significativa en su futuro.
+
+                    En primer lugar, la Universidad Tecnológica Especializada ha demostrado ser un bastión de excelencia académica y de investigación. Contamos con un cuerpo docente altamente calificado y comprometido que está a la vanguardia en sus respectivos campos. Aquí, tendrán la oportunidad de sumergirse en un ambiente de aprendizaje enriquecedor, rodeados de individuos apasionados que comparten sus intereses y ambiciones. La UTE ofrece una amplia gama de programas de estudio diseñados para preparar a los estudiantes para los desafíos del mundo actual, desde ciencias de la computación hasta ingeniería, pasando por negocios y ciencias sociales.
+                    
+                    En segundo lugar, ingresar a la UTE les brindará acceso a recursos y oportunidades invaluables. Nuestro campus está equipado con instalaciones de última generación que fomentan la investigación y la innovación. Además, colaboramos estrechamente con la industria y otras instituciones académicas, lo que se traduce en pasantías, proyectos conjuntos y conexiones que pueden allanar el camino hacia futuras carreras exitosas. También ofrecemos programas de intercambio internacional, lo que significa que podrán experimentar nuevas culturas y perspectivas mientras continúan su educación.
+                    
+                    En tercer lugar, la UTE se enorgullece de su compromiso con el crecimiento personal y el desarrollo integral de cada estudiante. No solo nos preocupamos por su éxito académico, sino también por su bienestar emocional y social. Aquí encontrarán una variedad de clubes, actividades extracurriculares y servicios de apoyo que les ayudarán a construir amistades duraderas, a explorar nuevas pasiones y a superar desafíos personales.
+                    
+                    Por último, pero no menos importante, la UTE se encuentra en constante evolución para mantenerse al día con los avances tecnológicos y las demandas cambiantes del mundo laboral. Al graduarse de nuestra universidad, estarán preparados no solo para encontrar empleo, sino para liderar y causar un impacto positivo en sus comunidades y en el mundo en general.
+                    
+                    En resumen, ingresar a la Universidad Tecnológica Especializada es un paso hacia un futuro emocionante y lleno de oportunidades. Les brindará una educación de calidad, acceso a recursos de primer nivel, desarrollo personal integral y una preparación sólida para enfrentar los desafíos del mañana. Los invito a considerar seriamente la posibilidad de unirse a nuestra comunidad académica y a ser parte de la próxima generación de líderes, innovadores y agentes de cambio.
+                </p>
+                <br>
+                <h3>Para formar parate de nuestra universidad, el promer paso esta en llenar este formulario</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <h3>Ingresa tus datos:</h3>
+                    <br>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control" placeholder="Ingresa tu nombre">
+                        <div class="alert alert-danger mt-2" [hidden]="nombre.valid||nombre.pristine">El nombre es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Apellido</label>
+                        <input type="text" formControlName="apellido" class="form-control" placeholder="Ingresa tu apellido">
+                        <div class="alert alert-danger mt-2" [hidden]="apellido.valid||apellido.pristine">El apellido es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Promedio</label>
+                        <input type="number" formControlName="promedio" class="form-control" placeholder="Ingresa el promedio que obtuviste en prepa" max="10" min="0">
+                        <div class="alert alert-danger mt-2" [hidden]="promedio.valid||promedio.pristine">El promedio es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Preparatoria de procedencia</label>
+                        <input type="tex" formControlName="prepa" class="form-control" placeholder="Ingresa la preparatoria de la cual vienes">
+                        <div class="alert alert-danger mt-2" [hidden]="promedio.valid||promedio.pristine">Es necesario llenar el campo</div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Fecha de nacimiento</label>
+                        <input type="date" formControlName="fechan" class="form-control" placeholder="Ingresa tu fecha de nacimiento">
+                        <div class="alert alert-danger mt-2" [hidden]="fechan.valid||fechan.pristine">La fecha de nacimiento es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Genero</label>
+                        <select formControlName="genero" class="form-select" >
+                          <option>Hombre</option>
+                          <option>Mujer</option>
+                          <option>Otro</option>
+                        </select>
+                        <div class="alert alert-danger mt-2" [hidden]="genero.valid||genero.pristine">La fecha de nacimiento es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="carrera"><h3>Selecciona la carrera a la que aspiras:</h3></label><br>
+                        <div style="margin: 20px;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="carrera" value="isc" name="carrera" id="radio1">
+                            <label class="form-check-label">
+                            Ingeniería en sistemas computacionales
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="carrera" value="lp" name="carrera" id="radio2">
+                            <label class="form-check-label" >
+                            Licenciatura en Psicologia
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="carrera" value="ipi" name="carrera" id="radio3">
+                            <label class="form-check-label" >
+                            Ingeniería en Procesos Industriales
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="carrera"  value="lae" name="carrera" id="radio4">
+                            <label class="form-check-label" >
+                             Licenciatura en Administracion de empresas
+                            </label>
+                          </div>
+                        </div>
+                        <div class="alert alert-danger mt-2" [hidden]="carrera.valid">El carrera es un campo requerido</div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid" (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

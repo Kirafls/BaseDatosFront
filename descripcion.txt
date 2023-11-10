@@ -1,0 +1,23 @@
+Componentes a crear:
+    Menubar //se tomara en cuenta usar el appcomponet.ts
+    Inicio
+    Acerca de
+    Mostrar
+    Reserbar
+Modelo del hotel:
+    50 habitaciones de las cuales:
+        40 comunes
+        10 suit
+inteface a usar:
+    reserva:
+        id: number
+        nombre: String
+        apellido: String
+        correo: String
+        NPersona: number
+        NTel: number
+        dia: date
+        habitacion: number 1 a 50
+
+Servicios creados:
+    Alertyfy 

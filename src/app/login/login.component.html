@@ -1,0 +1,30 @@
+<fieldset>
+    <div style="margin: 10%">
+    <div class="card">
+        <div class="card-body">
+        <form [formGroup]="formUser">
+            <div class="mb-2">
+                <label class="form-label">Usermane</label>
+                <input type="text" formControlName="user" class="form-control" placeholder="Usuario">
+                <div class="alert alert-danger mt-2"[hidden]="user.valid">
+                    El Id es requerido
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Password</label>
+                <input type="password" formControlName="passw" class="form-control" placeholder="Password">
+                <div class="alert alert-danger mt-2"[hidden]="passw.valid">
+                    La contraseña es requerida
+                </div>
+            </div>
+        </form>
+            <div class="md-2">
+                <button class="btn btn-success" (click)="validar()" routerLink={{route}}>Validar</button>
+            </div>
+        </div>
+        <div class="card">
+            
+        </div>
+    </div>
+    </div>
+</fieldset>
