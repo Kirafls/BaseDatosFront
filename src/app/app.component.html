@@ -1,3 +1,39 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
-
+<div *ngIf="login(); else loginTemplate">
+    <!-- Navbar aquí -->
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+  </div>
+  
+  <ng-template #loginTemplate>
+    <!-- Mostrar el formulario de inicio de sesión si el usuario no ha iniciado sesión -->
+    <fieldset>
+      <div style="margin: 10%">
+        <div class="card">
+          <h2 class="card-header text-center">Becas del Bienestar</h2>
+          <div class="card-body" style="max-width: 400px; margin: 0 auto;">
+            <form [formGroup]="formUser">
+              <div class="mb-3">
+                <label class="form-label">Alias</label>
+                <input type="text" formControlName="user" class="form-control" placeholder="Escribe tu Alias">
+                <div class="alert alert-danger mt-2" [hidden]="formUser.get('user').valid">
+                  El Alias es requerido
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" formControlName="passw" class="form-control" placeholder="Escribe tu Contraseña">
+                <div class="alert alert-danger mt-2" [hidden]="formUser.get('passw').valid">
+                  La contraseña es requerida
+                </div>
+              </div>
+              <div class="md-3 text-center">
+                <button class="btn btn-success" (click)="validar()" [routerLink]="route">Validar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </ng-template>
+  
+    

@@ -4,15 +4,15 @@ import { AppComponent } from './app.component';
 import { IncioComponent } from './inicio/incio.component';
 
 import { FormularioComponent } from './formulario/formulario.component';
-import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginService } from './service/login.service';
 
 const routes: Routes = [
-  {path:"incio",component:IncioComponent},
-  {path:"form",component:FormularioComponent},
-  {path:"login",component:LoginComponent},
-  {path:"admin",component:AdminComponent},
-  {path:"**",component:IncioComponent}
+  {path:"inicio",component:IncioComponent,canActivate:[LoginService]},
+  {path:"form",component:FormularioComponent,canActivate:[LoginService]},
+  {path:"admin",component:AdminComponent,canActivate:[LoginService]},
+  {path:"login",component:AppComponent},
+  {path:"**",component:AppComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
