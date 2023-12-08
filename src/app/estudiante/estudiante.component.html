@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container mt-5">
     <div class="card">
       <div class="card-header">
@@ -17,3 +18,75 @@
       </div>
     </div>
   </div>
+=======
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Datos del estudiante-->
+                    <h3>Datos del estudiante</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control"
+                            placeholder="Ingresa tu nombre">
+                        <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
+                            <ng-container *ngIf="nombre.hasError('pattern')">
+                                No poner numeros
+                            </ng-container>
+                            <ng-container *ngIf="nombre.hasError('required')">
+                                El nombre es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Apellido</label>
+                        <input type="text" formControlName="apellido" class="form-control"
+                            placeholder="Ingresa tu apellido">
+                        <div class="alert alert-danger mt-2" [hidden]="apellido.valid||apellido.pristine">
+                            <ng-container *ngIf="apellido.hasError('pattern')">
+                                No poner numeros
+                            </ng-container>
+                            <ng-container *ngIf="apellido.hasError('required')">
+                                El apellido es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">CURP</label>
+                        <input type="text" formControlName="curp" class="form-control" placeholder="Ingresa tu CURP">
+                        <div class="alert alert-danger mt-2" [hidden]="curp.valid || curp.pristine">
+                            <ng-container *ngIf="curp.hasError('pattern')">
+                                La CURP no es válida
+                            </ng-container>
+                            <ng-container *ngIf="curp.hasError('required')">
+                                La CURP es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Fecha de nacimiento</label>
+                        <input type="date" formControlName="fechan" class="form-control"
+                            placeholder="Ingresa tu fecha de nacimiento">
+                        <div class="alert alert-danger mt-2" [hidden]="fechan.valid||fechan.pristine">La fecha de
+                            nacimiento es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Genero</label>
+                        <select formControlName="genero" class="form-select">
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                            <option>Prefiero no especificar</option>
+                        </select>
+                        <div class="alert alert-danger mt-2" [hidden]="genero.valid||genero.pristine">La fecha de
+                            nacimiento es un campo requerido</div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>
+>>>>>>> 4b3f9e8e957edc5319de625d09fe8f8482c98ad0

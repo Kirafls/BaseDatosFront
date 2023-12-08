@@ -1,0 +1,70 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Tutor-->
+                    <h3>Datos del tutor</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Tutor</label>
+                        <input type="text" formControlName="nombreTutor" class="form-control"
+                            placeholder="Ingresa el nombre del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="nombreTutor.valid || nombreTutor.pristine">
+                            <ng-container *ngIf="nombreTutor.hasError('pattern')">
+                                Solo se permiten letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreTutor.hasError('required')">
+                                El nombre del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Apellido del Tutor</label>
+                        <input type="text" formControlName="apellidoTutor" class="form-control"
+                            placeholder="Ingresa el apellido del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="apellidoTutor.valid || apellidoTutor.pristine">
+                            <ng-container *ngIf="apellidoTutor.hasError('pattern')">
+                                Solo se permiten letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="apellidoTutor.hasError('required')">
+                                El apellido del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Teléfono del Tutor</label>
+                        <input type="text" formControlName="telefonoTutor" class="form-control"
+                            placeholder="Ingresa el teléfono del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="telefonoTutor.valid || telefonoTutor.pristine">
+                            <ng-container *ngIf="telefonoTutor.hasError('pattern')">
+                                El teléfono debe tener 10 dígitos numéricos
+                            </ng-container>
+                            <ng-container *ngIf="telefonoTutor.hasError('required')">
+                                El teléfono del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Correo del Tutor</label>
+                        <input type="email" formControlName="correoTutor" class="form-control"
+                            placeholder="Ingresa el correo del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="correoTutor.valid || correoTutor.pristine">
+                            <ng-container *ngIf="correoTutor.hasError('email')">
+                                El correo no tiene un formato válido
+                            </ng-container>
+                            <ng-container *ngIf="correoTutor.hasError('required')">
+                                El correo del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

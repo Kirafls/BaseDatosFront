@@ -1,0 +1,39 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                     <!--Tipo de beca-->
+                     <h3>Tipo de beca</h3>
+                     <div class="mb-2">
+                         <label for="form-label">Nombre del Tipo de Beca</label>
+                         <input type="text" formControlName="nombreTipoBeca" class="form-control"
+                             placeholder="Ingresa el nombre del tipo de beca">
+                         <div class="alert alert-danger mt-2" [hidden]="nombreTipoBeca.valid || nombreTipoBeca.pristine">
+                             <ng-container *ngIf="nombreTipoBeca.hasError('required')">El nombre del tipo de beca es un
+                                 campo requerido</ng-container>
+                             <ng-container *ngIf="nombreTipoBeca.hasError('pattern')">El nombre del tipo de beca solo
+                                 puede contener letras y espacios</ng-container>
+                         </div>
+                     </div>
+ 
+                     <div class="mb-2">
+                         <label for="form-label">Descripción del Tipo de Beca</label>
+                         <input type="text" formControlName="descripcionTipoBeca" class="form-control"
+                             placeholder="Ingresa la descripción del tipo de beca">
+                         <div class="alert alert-danger mt-2"
+                             [hidden]="descripcionTipoBeca.valid || descripcionTipoBeca.pristine">
+                             <ng-container *ngIf="descripcionTipoBeca.hasError('required')">La descripción del tipo de
+                                 beca es un campo requerido</ng-container>
+                             <ng-container *ngIf="descripcionTipoBeca.hasError('pattern')">La descripción del tipo de
+                                 beca solo puede contener letras y espacios</ng-container>
+                         </div>
+                     </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

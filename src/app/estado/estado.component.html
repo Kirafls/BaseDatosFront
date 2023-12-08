@@ -1,0 +1,27 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Estado-->
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Estado</label>
+                        <input type="text" formControlName="nombreEstado" class="form-control"
+                            placeholder="Ingresa el nombre del estado">
+                        <div class="alert alert-danger mt-2" [hidden]="nombreEstado.valid || nombreEstado.pristine">
+                            <ng-container *ngIf="nombreEstado.hasError('pattern')">
+                                El nombre del estado solo debe contener letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreEstado.hasError('required')">
+                                El nombre del estado es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,49 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Beca-->
+                    <h3>Datos de la beca</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Fecha de Solicitud</label>
+                        <input type="date" formControlName="fechaSolicitud" class="form-control"
+                            placeholder="Ingresa la fecha de solicitud">
+                        <div class="alert alert-danger mt-2" [hidden]="fechaSolicitud.valid || fechaSolicitud.pristine">
+                            <ng-container *ngIf="fechaSolicitud.hasError('required')">La fecha de solicitud es un campo
+                                requerido</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Estado de Solicitud</label>
+                        <input type="text" formControlName="estadoSolicitud" class="form-control"
+                            placeholder="Ingresa el estado de la solicitud">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="estadoSolicitud.valid || estadoSolicitud.pristine">
+                            <ng-container *ngIf="estadoSolicitud.hasError('required')">El estado de la solicitud es un
+                                campo requerido</ng-container>
+                            <ng-container *ngIf="estadoSolicitud.hasError('pattern')">El estado de la solicitud solo
+                                puede contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Comentarios</label>
+                        <input type="text" formControlName="comentarios" class="form-control"
+                            placeholder="Ingresa comentarios">
+                        <div class="alert alert-danger mt-2" [hidden]="comentarios.valid || comentarios.pristine">
+                            <ng-container *ngIf="comentarios.hasError('required')">Los comentarios son un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="comentarios.hasError('pattern')">Los comentarios solo pueden contener
+                                letras y espacios</ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>
