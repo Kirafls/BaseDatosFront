@@ -1,0 +1,40 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Documentos-->
+                    <h3>Documentos a presentar</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Documento</label>
+                        <input type="text" formControlName="nombreDocumento" class="form-control"
+                            placeholder="Ingresa el nombre del documento">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="nombreDocumento.valid || nombreDocumento.pristine">
+                            <ng-container *ngIf="nombreDocumento.hasError('required')">El nombre del documento es un
+                                campo requerido</ng-container>
+                            <ng-container *ngIf="nombreDocumento.hasError('pattern')">El nombre del documento solo puede
+                                contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Descripción del Documento</label>
+                        <input type="text" formControlName="descripcionDocumento" class="form-control"
+                            placeholder="Ingresa la descripción del documento">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="descripcionDocumento.valid || descripcionDocumento.pristine">
+                            <ng-container *ngIf="descripcionDocumento.hasError('required')">La descripción del documento
+                                es un campo requerido</ng-container>
+                            <ng-container *ngIf="descripcionDocumento.hasError('pattern')">La descripción del documento
+                                solo puede contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

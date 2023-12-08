@@ -1,0 +1,50 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Medio de Comunicacion-->
+                    <h3>Medios para contactarte</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Correo</label>
+                        <input type="text" formControlName="correoMedioComunicacion" class="form-control"
+                            placeholder="Ingresa el correo">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="correoMedioComunicacion.valid || correoMedioComunicacion.pristine">
+                            <ng-container *ngIf="correoMedioComunicacion.hasError('email')">
+                                Ingresa un correo electrónico válido
+                            </ng-container>
+                            <ng-container *ngIf="correoMedioComunicacion.hasError('required')">
+                                El correo del medio de comunicación es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Teléfono</label>
+                        <input type="text" formControlName="telefonoMedioComunicacion" class="form-control"
+                            placeholder="Ingresa el teléfono">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="telefonoMedioComunicacion.valid || telefonoMedioComunicacion.pristine">
+                            <ng-container *ngIf="telefonoMedioComunicacion.hasError('pattern')">
+                                Ingresa un número de teléfono válido (al menos 10 dígitos)
+                            </ng-container>
+                            <ng-container *ngIf="telefonoMedioComunicacion.hasError('required')">
+                                El teléfono del medio de comunicación es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Teléfono Alterno (opcional)</label>
+                        <input type="text" formControlName="telefonoAlternoMedioComunicacion" class="form-control"
+                            placeholder="Ingresa el teléfono alterno">
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

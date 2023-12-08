@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
   validar(){
     if(this.user.value==="Admin"&&this.passw.value==="flath"){
       this.route="/inicio";
-      this.alertify.success("La contraseña y el ususario son correctos");
+      this.alertify.success("La contraseña y el usuario son correctos");
       this.sesion=true;
       localStorage.setItem('sesion', 'true');
     }

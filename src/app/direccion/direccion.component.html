@@ -1,0 +1,60 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Direccion-->
+                    <h3>Direccion</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Calle</label>
+                        <input type="text" formControlName="calle" class="form-control" placeholder="Ingresa tu calle">
+                        <div class="alert alert-danger mt-2" [hidden]="calle.valid || calle.pristine">
+                            <ng-container *ngIf="calle.hasError('required')">La calle es un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="calle.hasError('pattern')">La calle solo puede contener letras, números
+                                y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Número Exterior</label>
+                        <input type="text" formControlName="noExt" class="form-control"
+                            placeholder="Ingresa tu número exterior">
+                        <div class="alert alert-danger mt-2" [hidden]="noExt.valid || noExt.pristine">
+                            <ng-container *ngIf="noExt.hasError('required')">El número exterior es un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="noExt.hasError('pattern')">El número exterior solo puede contener
+                                números</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Número Interior</label>
+                        <input type="text" formControlName="noInt" class="form-control"
+                            placeholder="Ingresa tu número interior">
+                        <div class="alert alert-danger mt-2" [hidden]="noInt.valid || noInt.pristine">
+                            <ng-container *ngIf="noInt.hasError('pattern')">El número interior solo puede contener
+                                números</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Fraccionamiento</label>
+                        <input type="text" formControlName="fraccionamiento" class="form-control"
+                            placeholder="Ingresa tu fraccionamiento">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="fraccionamiento.valid || fraccionamiento.pristine">
+                            <ng-container *ngIf="fraccionamiento.hasError('required')">El fraccionamiento es un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="fraccionamiento.hasError('pattern')">El fraccionamiento solo puede
+                                contener letras, números y espacios</ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>
