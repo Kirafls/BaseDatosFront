@@ -17,6 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginService } from './service/login.service';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { DocumentosComponent } from './documentos/documentos.component';
 
 
 
@@ -30,6 +32,8 @@ import { LoginService } from './service/login.service';
     FooterComponent,
     FormularioComponent,
     AdminComponent,
+    EstudianteComponent,
+    DocumentosComponent,
   ],
   imports: [
     BrowserModule,
