@@ -1,0 +1,28 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Municipio-->
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Municipio</label>
+                        <input type="text" formControlName="nombreMunicipio" class="form-control"
+                            placeholder="Ingresa el nombre del municipio">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="nombreMunicipio.valid || nombreMunicipio.pristine">
+                            <ng-container *ngIf="nombreMunicipio.hasError('pattern')">
+                                El nombre del municipio solo debe contener letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreMunicipio.hasError('required')">
+                                El nombre del municipio es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

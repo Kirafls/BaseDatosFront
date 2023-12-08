@@ -1,0 +1,372 @@
+<fieldset>
+    <div style="margin:50px">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formAlumno">
+                    <br>
+                    <!--Datos del estudiante-->
+                    <h3>Datos del estudiante</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control"
+                            placeholder="Ingresa tu nombre">
+                        <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
+                            <ng-container *ngIf="nombre.hasError('pattern')">
+                                No poner numeros
+                            </ng-container>
+                            <ng-container *ngIf="nombre.hasError('required')">
+                                El nombre es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Apellido</label>
+                        <input type="text" formControlName="apellido" class="form-control"
+                            placeholder="Ingresa tu apellido">
+                        <div class="alert alert-danger mt-2" [hidden]="apellido.valid||apellido.pristine">
+                            <ng-container *ngIf="apellido.hasError('pattern')">
+                                No poner numeros
+                            </ng-container>
+                            <ng-container *ngIf="apellido.hasError('required')">
+                                El apellido es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">CURP</label>
+                        <input type="text" formControlName="curp" class="form-control" placeholder="Ingresa tu CURP">
+                        <div class="alert alert-danger mt-2" [hidden]="curp.valid || curp.pristine">
+                            <ng-container *ngIf="curp.hasError('pattern')">
+                                La CURP no es válida
+                            </ng-container>
+                            <ng-container *ngIf="curp.hasError('required')">
+                                La CURP es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Fecha de nacimiento</label>
+                        <input type="date" formControlName="fechan" class="form-control"
+                            placeholder="Ingresa tu fecha de nacimiento">
+                        <div class="alert alert-danger mt-2" [hidden]="fechan.valid||fechan.pristine">La fecha de
+                            nacimiento es un campo requerido</div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Genero</label>
+                        <select formControlName="genero" class="form-select">
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                            <option>Prefiero no especificar</option>
+                        </select>
+                        <div class="alert alert-danger mt-2" [hidden]="genero.valid||genero.pristine">La fecha de
+                            nacimiento es un campo requerido</div>
+                    </div>
+                    <!--Tutor-->
+                    <h3>Datos del tutor</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Tutor</label>
+                        <input type="text" formControlName="nombreTutor" class="form-control"
+                            placeholder="Ingresa el nombre del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="nombreTutor.valid || nombreTutor.pristine">
+                            <ng-container *ngIf="nombreTutor.hasError('pattern')">
+                                Solo se permiten letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreTutor.hasError('required')">
+                                El nombre del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Apellido del Tutor</label>
+                        <input type="text" formControlName="apellidoTutor" class="form-control"
+                            placeholder="Ingresa el apellido del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="apellidoTutor.valid || apellidoTutor.pristine">
+                            <ng-container *ngIf="apellidoTutor.hasError('pattern')">
+                                Solo se permiten letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="apellidoTutor.hasError('required')">
+                                El apellido del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Teléfono del Tutor</label>
+                        <input type="text" formControlName="telefonoTutor" class="form-control"
+                            placeholder="Ingresa el teléfono del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="telefonoTutor.valid || telefonoTutor.pristine">
+                            <ng-container *ngIf="telefonoTutor.hasError('pattern')">
+                                El teléfono debe tener 10 dígitos numéricos
+                            </ng-container>
+                            <ng-container *ngIf="telefonoTutor.hasError('required')">
+                                El teléfono del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Correo del Tutor</label>
+                        <input type="email" formControlName="correoTutor" class="form-control"
+                            placeholder="Ingresa el correo del tutor">
+                        <div class="alert alert-danger mt-2" [hidden]="correoTutor.valid || correoTutor.pristine">
+                            <ng-container *ngIf="correoTutor.hasError('email')">
+                                El correo no tiene un formato válido
+                            </ng-container>
+                            <ng-container *ngIf="correoTutor.hasError('required')">
+                                El correo del tutor es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <!--Escuela-->
+                    <h3>Escuela donde estudias</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre de la Escuela</label>
+                        <input type="text" formControlName="nombreEscuela" class="form-control"
+                            placeholder="Ingresa el nombre de la escuela">
+                        <div class="alert alert-danger mt-2" [hidden]="nombreEscuela.valid || nombreEscuela.pristine">
+                            <ng-container *ngIf="nombreEscuela.hasError('pattern')">
+                                Solo se permiten letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreEscuela.hasError('required')">
+                                El nombre de la escuela es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Dirección de la Escuela</label>
+                        <input type="text" formControlName="direccionEscuela" class="form-control"
+                            placeholder="Ingresa la dirección de la escuela">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="direccionEscuela.valid || direccionEscuela.pristine">
+                            <ng-container *ngIf="direccionEscuela.hasError('pattern')">
+                                Solo se permiten letras, números y espacios
+                            </ng-container>
+                            <ng-container *ngIf="direccionEscuela.hasError('required')">
+                                La dirección de la escuela es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <!--Medio de Comunicacion-->
+                    <h3>Medios para contactarte</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Correo</label>
+                        <input type="text" formControlName="correoMedioComunicacion" class="form-control"
+                            placeholder="Ingresa el correo">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="correoMedioComunicacion.valid || correoMedioComunicacion.pristine">
+                            <ng-container *ngIf="correoMedioComunicacion.hasError('email')">
+                                Ingresa un correo electrónico válido
+                            </ng-container>
+                            <ng-container *ngIf="correoMedioComunicacion.hasError('required')">
+                                El correo del medio de comunicación es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Teléfono</label>
+                        <input type="text" formControlName="telefonoMedioComunicacion" class="form-control"
+                            placeholder="Ingresa el teléfono">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="telefonoMedioComunicacion.valid || telefonoMedioComunicacion.pristine">
+                            <ng-container *ngIf="telefonoMedioComunicacion.hasError('pattern')">
+                                Ingresa un número de teléfono válido (al menos 10 dígitos)
+                            </ng-container>
+                            <ng-container *ngIf="telefonoMedioComunicacion.hasError('required')">
+                                El teléfono del medio de comunicación es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Teléfono Alterno (opcional)</label>
+                        <input type="text" formControlName="telefonoAlternoMedioComunicacion" class="form-control"
+                            placeholder="Ingresa el teléfono alterno">
+                    </div>
+                    <!--Estado, Municipio y Localidad-->
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Estado</label>
+                        <input type="text" formControlName="nombreEstado" class="form-control"
+                            placeholder="Ingresa el nombre del estado">
+                        <div class="alert alert-danger mt-2" [hidden]="nombreEstado.valid || nombreEstado.pristine">
+                            <ng-container *ngIf="nombreEstado.hasError('pattern')">
+                                El nombre del estado solo debe contener letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreEstado.hasError('required')">
+                                El nombre del estado es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Municipio</label>
+                        <input type="text" formControlName="nombreMunicipio" class="form-control"
+                            placeholder="Ingresa el nombre del municipio">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="nombreMunicipio.valid || nombreMunicipio.pristine">
+                            <ng-container *ngIf="nombreMunicipio.hasError('pattern')">
+                                El nombre del municipio solo debe contener letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreMunicipio.hasError('required')">
+                                El nombre del municipio es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre de la Localidad</label>
+                        <input type="text" formControlName="nombreLocalidad" class="form-control"
+                            placeholder="Ingresa el nombre de la Localidad">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="nombreLocalidad.valid || nombreLocalidad.pristine">
+                            <ng-container *ngIf="nombreLocalidad.hasError('pattern')">
+                                El nombre de la localidad solo debe contener letras y espacios
+                            </ng-container>
+                            <ng-container *ngIf="nombreLocalidad.hasError('required')">
+                                El nombre de la localidad es un campo requerido
+                            </ng-container>
+                        </div>
+                    </div>
+                    <!--Direccion-->
+                    <h3>Direccion</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Calle</label>
+                        <input type="text" formControlName="calle" class="form-control" placeholder="Ingresa tu calle">
+                        <div class="alert alert-danger mt-2" [hidden]="calle.valid || calle.pristine">
+                            <ng-container *ngIf="calle.hasError('required')">La calle es un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="calle.hasError('pattern')">La calle solo puede contener letras, números
+                                y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Número Exterior</label>
+                        <input type="text" formControlName="noExt" class="form-control"
+                            placeholder="Ingresa tu número exterior">
+                        <div class="alert alert-danger mt-2" [hidden]="noExt.valid || noExt.pristine">
+                            <ng-container *ngIf="noExt.hasError('required')">El número exterior es un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="noExt.hasError('pattern')">El número exterior solo puede contener
+                                números</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Número Interior</label>
+                        <input type="text" formControlName="noInt" class="form-control"
+                            placeholder="Ingresa tu número interior">
+                        <div class="alert alert-danger mt-2" [hidden]="noInt.valid || noInt.pristine">
+                            <ng-container *ngIf="noInt.hasError('pattern')">El número interior solo puede contener
+                                números</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Fraccionamiento</label>
+                        <input type="text" formControlName="fraccionamiento" class="form-control"
+                            placeholder="Ingresa tu fraccionamiento">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="fraccionamiento.valid || fraccionamiento.pristine">
+                            <ng-container *ngIf="fraccionamiento.hasError('required')">El fraccionamiento es un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="fraccionamiento.hasError('pattern')">El fraccionamiento solo puede
+                                contener letras, números y espacios</ng-container>
+                        </div>
+                    </div>
+                    <!--Beca-->
+                    <h3>Datos de la beca</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Fecha de Solicitud</label>
+                        <input type="date" formControlName="fechaSolicitud" class="form-control"
+                            placeholder="Ingresa la fecha de solicitud">
+                        <div class="alert alert-danger mt-2" [hidden]="fechaSolicitud.valid || fechaSolicitud.pristine">
+                            <ng-container *ngIf="fechaSolicitud.hasError('required')">La fecha de solicitud es un campo
+                                requerido</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Estado de Solicitud</label>
+                        <input type="text" formControlName="estadoSolicitud" class="form-control"
+                            placeholder="Ingresa el estado de la solicitud">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="estadoSolicitud.valid || estadoSolicitud.pristine">
+                            <ng-container *ngIf="estadoSolicitud.hasError('required')">El estado de la solicitud es un
+                                campo requerido</ng-container>
+                            <ng-container *ngIf="estadoSolicitud.hasError('pattern')">El estado de la solicitud solo
+                                puede contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Comentarios</label>
+                        <input type="text" formControlName="comentarios" class="form-control"
+                            placeholder="Ingresa comentarios">
+                        <div class="alert alert-danger mt-2" [hidden]="comentarios.valid || comentarios.pristine">
+                            <ng-container *ngIf="comentarios.hasError('required')">Los comentarios son un campo
+                                requerido</ng-container>
+                            <ng-container *ngIf="comentarios.hasError('pattern')">Los comentarios solo pueden contener
+                                letras y espacios</ng-container>
+                        </div>
+                    </div>
+                    <!--Documentos-->
+                    <h3>Documentos a presentar</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Documento</label>
+                        <input type="text" formControlName="nombreDocumento" class="form-control"
+                            placeholder="Ingresa el nombre del documento">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="nombreDocumento.valid || nombreDocumento.pristine">
+                            <ng-container *ngIf="nombreDocumento.hasError('required')">El nombre del documento es un
+                                campo requerido</ng-container>
+                            <ng-container *ngIf="nombreDocumento.hasError('pattern')">El nombre del documento solo puede
+                                contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Descripción del Documento</label>
+                        <input type="text" formControlName="descripcionDocumento" class="form-control"
+                            placeholder="Ingresa la descripción del documento">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="descripcionDocumento.valid || descripcionDocumento.pristine">
+                            <ng-container *ngIf="descripcionDocumento.hasError('required')">La descripción del documento
+                                es un campo requerido</ng-container>
+                            <ng-container *ngIf="descripcionDocumento.hasError('pattern')">La descripción del documento
+                                solo puede contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+                    <!--Tipo de beca-->
+                    <h3>Tipo de beca</h3>
+                    <div class="mb-2">
+                        <label for="form-label">Nombre del Tipo de Beca</label>
+                        <input type="text" formControlName="nombreTipoBeca" class="form-control"
+                            placeholder="Ingresa el nombre del tipo de beca">
+                        <div class="alert alert-danger mt-2" [hidden]="nombreTipoBeca.valid || nombreTipoBeca.pristine">
+                            <ng-container *ngIf="nombreTipoBeca.hasError('required')">El nombre del tipo de beca es un
+                                campo requerido</ng-container>
+                            <ng-container *ngIf="nombreTipoBeca.hasError('pattern')">El nombre del tipo de beca solo
+                                puede contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="form-label">Descripción del Tipo de Beca</label>
+                        <input type="text" formControlName="descripcionTipoBeca" class="form-control"
+                            placeholder="Ingresa la descripción del tipo de beca">
+                        <div class="alert alert-danger mt-2"
+                            [hidden]="descripcionTipoBeca.valid || descripcionTipoBeca.pristine">
+                            <ng-container *ngIf="descripcionTipoBeca.hasError('required')">La descripción del tipo de
+                                beca es un campo requerido</ng-container>
+                            <ng-container *ngIf="descripcionTipoBeca.hasError('pattern')">La descripción del tipo de
+                                beca solo puede contener letras y espacios</ng-container>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" routerLink="/inicio" [disabled]="formAlumno.invalid"
+                        (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>

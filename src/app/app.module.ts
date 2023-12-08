@@ -17,6 +17,18 @@ import { FooterComponent } from './footer/footer.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginService } from './service/login.service';
+import { RegistroComponent } from './registro/registro.component';
+import { BecaComponent } from './beca/beca.component';
+import { DireccionComponent } from './direccion/direccion.component';
+import { DocumentosComponent } from './documentos/documentos.component';
+import { EscuelaComponent } from './escuela/escuela.component';
+import { EstadoComponent } from './estado/estado.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { LocalidadComponent } from './localidad/localidad.component';
+import { MedComunicacionComponent } from './med-comunicacion/med-comunicacion.component';
+import { MunicipioComponent } from './municipio/municipio.component';
+import { TipoBecaComponent } from './tipo-beca/tipo-beca.component';
+import { TutorComponent } from './tutor/tutor.component';
 
 
 
@@ -30,6 +42,18 @@ import { LoginService } from './service/login.service';
     FooterComponent,
     FormularioComponent,
     AdminComponent,
+    RegistroComponent,
+    BecaComponent,
+    DireccionComponent,
+    DocumentosComponent,
+    EscuelaComponent,
+    EstadoComponent,
+    EstudianteComponent,
+    LocalidadComponent,
+    MedComunicacionComponent,
+    MunicipioComponent,
+    TipoBecaComponent,
+    TutorComponent,
   ],
   imports: [
     BrowserModule,
