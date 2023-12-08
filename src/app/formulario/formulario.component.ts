@@ -18,7 +18,6 @@ export class FormularioComponent implements OnInit{
     console.log(this.formAlumno.invalid);
   }
   constructor(private httpform:HttpClient,public alertify:AlertifyService){
-
   }
   get nombre(){
     return this.formAlumno.get("nombre") as FormControl;
@@ -65,56 +64,7 @@ export class FormularioComponent implements OnInit{
         console.log(result)
       });
       this.alertify.success("Los datos se han guardado correctamente");
-      this.createPDF();
       
     }
-    createPDF(){ 
-      const pdfDefinition: any = {
-        content: [
-          {
-            text: `Universidad Tecnologica Especializada para todos nuestro aspirantes:
-
-
-            Hoy comienza un emocionante capítulo en sus vidas, y estamos encantados de tenerlos aquí. Quiero compartir algunas palabras que espero les inspiren y guíen en esta etapa de aprendizaje y crecimiento.
-
-            La educación es un viaje en el que cada día es una oportunidad para descubrir, aprender y crecer. En este camino, encontrarán desafíos, pero recuerden que cada obstáculo es una oportunidad para superarse y fortalecerse.
-            
-            Mantengan la curiosidad viva. Pregunten, investiguen y exploren. El conocimiento no solo se encuentra en los libros, sino en las experiencias y las conversaciones que tendrán a lo largo de su vida académica.
-            
-            La perseverancia es clave. Habrá momentos en los que sientan que no pueden continuar, pero recuerden por qué comenzaron y visualicen el objetivo final. Cada pequeño paso los acercará a ese logro.
-            
-            No tengan miedo de cometer errores. En realidad, son valiosas oportunidades para aprender y mejorar. Aprovechen cada error como una lección que los llevará más cerca de la excelencia.
-            
-            La colaboración es esencial. Aprendan unos de otros, compartan sus ideas y construyan juntos. El intercambio de conocimientos enriquecerá su experiencia y les abrirá nuevas perspectivas.
-            
-            Creen sus propias metas y sueños. No se limiten por las expectativas de los demás. Ustedes son los arquitectos de su futuro, y cada esfuerzo que pongan los acercará a hacer realidad sus aspiraciones.
-            
-            Recuerden cuidarse a sí mismos. El equilibrio entre el estudio, el descanso y el cuidado personal es fundamental para su bienestar. No descuiden su salud física y mental en este viaje.
-            
-            Finalmente, celebren cada logro, por pequeño que sea. Cada paso adelante merece ser reconocido y celebrado. Disfruten el proceso y estén orgullosos de su dedicación y esfuerzo.
-            
-            Estamos emocionados de acompañarlos en esta travesía educativa. Sepan que cuentan con nuestro apoyo y estamos aquí para ayudarlos a alcanzar su máximo potencial. ¡Bienvenidos y mucho éxito en este nuevo inicio!
-            
-            
-            Es importante imprimir este documeto ya que es el pase para el examen de admision
-
-            Este pase es valido para el alumno ${this.nombre.value+" "+this.apellido.value} de la peparatoria de procedencia ${this.prepa.value}
-            El examen sera aplicado en el campus principal.
-            Con direccion: Universidad Tecnológica de la Excelencia (UTE) Avenida Innovación, 1234 Ciudad Progresar, CP 56789 País Modernia
-            El alula en el cual sera aplicado es en 120H a las 10:00hr
-
-            Cualquier duda o comentario:
-            Principal: +123 456 7890
-            Admisiones: +123 456 7891
-            Departamento de Investigación: +123 456 7892
-              `,
-          }
-        ]
-      }
-   
-      const pdf = pdfMake.createPdf(pdfDefinition);
-      pdf.open();
-   
-    }
-
+    
 }

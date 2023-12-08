@@ -11,4 +11,5 @@ export class AlumnosService {
   public getdata():Observable<any>{
     return this.http.get<any>(this.urlAlumnos);
   }
+  //Aqui se van a agregar todas las consultas para el muestreo de informacion
 }
