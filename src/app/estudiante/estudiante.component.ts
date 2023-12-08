@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../service/aletify.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-estudiante',
@@ -13,7 +14,7 @@ export class EstudianteComponent implements OnInit {
     this.alertify.success("Contenido cargado");
     console.log(this.formAlumno.invalid);
   }
-  constructor(private httpform: HttpClient, public alertify: AlertifyService) { }
+  constructor( private route:Router,private httpform: HttpClient, public alertify: AlertifyService) { }
   //Estudiante
   get nombre() {
     return this.formAlumno.get("nombre") as FormControl;
@@ -39,17 +40,34 @@ export class EstudianteComponent implements OnInit {
     "genero": new FormControl("", Validators.required),
   });
   nuevoAspirante() {
-    let paramsEstudiante = {
-      // Estudiante
+    const idEstudiante = localStorage.getItem("id_est");
+  
+    if (!idEstudiante) {
+      // Manejar la situación donde el ID del estudiante no está disponible
+      console.error("ID del estudiante no encontrado en localStorage");
+      this.alertify.error("Error al guardar los datos");
+      return;
+    }
+  
+    const paramsEstudiante = {
+      id_Estudiante: idEstudiante,
       Nombre: this.nombre.value,
       Apellidos: this.apellido.value,
       Fecha_Nacimiento: this.fechan.value,
       Sexo: this.genero.value,
       Curp: this.curp.value,
     };
-    this.httpform.post("http://localhost:3000/estudiante", paramsEstudiante).subscribe(result => {
-      console.log(result)
-    });
-    this.alertify.success("Los datos se han guardado correctamente");
+  
+    this.httpform.post("http://localhost:3000/estudiante", paramsEstudiante).subscribe(
+      result => {
+        console.log(result);
+        this.alertify.success("Los datos se han guardado correctamente");
+        this.route.navigate(["/escuela"]);
+      },
+      error => {
+        console.error('Error en la solicitud HTTP:', error);
+        this.alertify.error("Error al guardar los datos");
+      }
+    );
   }
 }

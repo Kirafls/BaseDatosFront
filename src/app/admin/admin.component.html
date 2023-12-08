@@ -1,48 +1,4 @@
 <fieldset>
-    <div style="margin:50px">
-        <div class="card">
-            <div class="card-body">
-                <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">Carrera</th>
-                        <th scope="col">Fecha de nacimiento</th>
-                        <th scope="col">Prepa</th>
-                        <th scope="col">Genero</th>
-                        <th scope="col">Promedio</th>
-                      </tr>
-                </thead>
-                    <tr *ngFor="let alumno of data">
-                      <th>{{alumno.ID}}</th>
-                      <td>{{alumno.Nombre}}</td>
-                      <td>{{alumno.Apellido}}</td>
-                      <td>{{alumno.Carrera}}</td>
-                      <td>{{alumno.Fecha_na}}</td>
-                      <td>{{alumno.Prepa}}</td>
-                      <td>{{alumno.Genero}}</td>
-                      <td>{{alumno.Promedio}}</td>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="card" style="margin-left:100px; margin: 50px;">
-            <div class="card-body" >
-            <div class="mt-2">
-                <label class="form-label">Selecciona el id que quieras eliminar</label>
-                <input type="number" [formControl]="alumno" class="form-control" placeholder="ID de un alumno">
-                <div class="alert alert-danger mt-2"[hidden]="alumno.valid">
-                    El id del alumno es requerido
-                </div>
-            </div>
-            <div class="mt-2">
-                <button (click)="buscarAlumno()" class="btn btn-danger">Eliminar</button>
-            </div>
-            </div>
-        </div>
-    </div>
+    
 
 </fieldset>

@@ -40,18 +40,19 @@ export class AppComponent implements OnInit {
     };
 
     this.httpform.post("http://localhost:3000/login", params).subscribe(
-      ({ comfirm,id_estudiante}: any) => {
+      ({ comfirm, id_estudiante }: any) => {
         console.log(comfirm);
         console.log(id_estudiante);
-        if (confirm) {
+        if (comfirm) {
           // Utiliza el servicio de Router para navegar a la nueva ruta
           this.router.navigate(['/inicio']);
           this.alertify.success("Bienvenido");
           this.setLogin(true);
           localStorage.setItem('sesion', 'true');
-          localStorage.setItem('id_est', id_estudiante); // Se recupera de la consulta en base a esta se manejan los datos generales como la llave principal
+          localStorage.setItem('id_est', id_estudiante);
         } else {
           this.alertify.error("La contraseña o usuario es incorrecto");
+          this.setLogin(false);
         }
       },
       (error) => {
@@ -63,6 +64,8 @@ export class AppComponent implements OnInit {
 
   registro() {
     // this.route=registro
+    this.router.navigate(['/form']);
+    this.setLogin(true);
     // se implementa después 
   }
 
